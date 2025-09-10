@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Booking & Reservations</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Login Page -->
+  <div id="loginScreen" class="card login-card">
+    <h2>🔑 Admin Login</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+  </div>
+
+  <!-- Main App -->
+  <div id="appScreen" style="display:none;">
+    <header>
+      <h1>🏨 Hotel Booking & Reservations</h1>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </header>
+
+    <!-- Dashboard -->
+    <section class="dashboard">
+      <div class="stat-card blue">Total Bookings: <span id="totalBookings">0</span></div>
+      <div class="stat-card green">Total Guests: <span id="totalGuests">0</span></div>
+      <div class="stat-card pink">Available Rooms: <span id="availableRooms">50</span></div>
+    </section>
+
+    <!-- Booking Form -->
+    <section class="card">
+      <h2>📝 Make a Reservation</h2>
+      <input type="text" id="guestName" placeholder="Guest Name">
+      <input type="number" id="guests" placeholder="Number of Guests">
+      <select id="roomType">
+        <option value="Single">Single Room</option>
+        <option value="Double">Double Room</option>
+        <option value="Suite">Luxury Suite</option>
+      </select>
+      <input type="date" id="checkIn">
+      <input type="date" id="checkOut">
+      <button onclick="addBooking()">Book Now</button>
+    </section>
+
+    <!-- Reservations List -->
+    <section class="card">
+      <h2>📋 Reservations</h2>
+      <table id="reservationsTable">
+        <thead>
+          <tr>
+            <th>ID</th><th>Guest</th><th>Room</th><th>Guests</th><th>Check-In</th><th>Check-Out</th><th>Action</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <!-- Reports -->
+    <section class="card">
+      <h2>📊 Reports</h2>
+      <button onclick="generateReport()">Generate Report</button>
+      <button onclick="downloadCSV()">Download CSV</button>
+      <button onclick="printReport()">Print Report</button>
+      <div id="reportArea"></div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
